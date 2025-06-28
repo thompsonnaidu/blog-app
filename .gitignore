@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+**/node_modules/
+**/dist
+**/build
+.turbo/cookies/**
+.turbo/**
+package-lock.json
+yarn.lock
