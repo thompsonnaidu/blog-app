@@ -18,7 +18,4 @@ export class CommentEntity {
 
   @Field()
   createAt: Date;
-
-  @Field()
-  updatedAt: Date;
 }

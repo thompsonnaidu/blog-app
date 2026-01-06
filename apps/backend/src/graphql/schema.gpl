@@ -26,7 +26,6 @@ type CommentEntity {
   post: Post!
   author: User!
   createAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type Tag {
@@ -52,6 +51,46 @@ type Post {
   comments: [CommentEntity!]!
 }
 
+type AuthPayload {
+  id: Int!
+  name: String!
+  avatar: String
+  accessToken: String!
+}
+
 type Query {
   post: [Post!]!
+  comment(id: Int!): CommentEntity!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  createComment(createCommentInput: CreateCommentInput!): CommentEntity!
+  updateComment(updateCommentInput: UpdateCommentInput!): CommentEntity!
+  removeComment(id: Int!): CommentEntity!
+  signIn(signInInput: SignInInput!): AuthPayload!
+}
+
+input CreateUserInput {
+  name: String!
+  password: String!
+  email: String!
+  bio: String
+  avatar: String
+}
+
+input CreateCommentInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateCommentInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input SignInInput {
+  email: String!
+  password: String!
 }

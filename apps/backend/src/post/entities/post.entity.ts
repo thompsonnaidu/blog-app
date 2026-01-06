@@ -39,5 +39,5 @@ export class Post {
   tags: Tag[];
 
   @Field(() => [CommentEntity])
-  comments: CommentEntity;
+  comments: CommentEntity[];
 }
